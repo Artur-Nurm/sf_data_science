@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  notebook:
+    profiles: ['dev']
+    build:
+      context: .
+      dockerfile: ./Dockerfiles/Dockerfile.dev
+    volumes:
+      - .:/code
+  bot:
+    profiles: ['prod']
+    build:
+      context: .
+      dockerfile: ./Dockerfiles/Dockerfile.prod
+    volumes:
+      - .:/code
+    
